@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head><meta charset="utf-8"><title>Lab 2</title></head>
+<body>
+
+<h1>Lab 2</h1>
+
+<hr>
+<h2>SQL ubacivanje (SQL Injection)</h2>
+<p>Upute: Spremi poruku i PIN. Zatim u polje Poruka upiši <code>' OR '1'='1</code> i ponovno pošalji. Ako je ranjivost uključena, vraćaju se svi redci iz baze (uključujući tuđe PIN-ove).</p>
+
+<form method="post" action="/sqli-toggle">
+<input type="checkbox" name="vulnerable" value="on" %%SQLI_CHECKED%%>
+Ranjivost uključena
+<input type="submit" value="Primijeni">
+</form>
+
+<form method="post" action="/message">
+Poruka: <input type="text" name="message" value="%%LAST_INPUT%%">
+PIN: <input type="password" name="pin">
+<input type="submit" value="Spremi podatke">
+</form>
+
+%%RESULTS%%
+
+<hr>
+<h2>CSRF (Cross Site Request Forgery)</h2>
+<p>Upute: Promijeni email obrascem ispod (šalje ispravan token). Zatim klikni na <a href="https://PLACEHOLDER.github.io/lab2/evil_page.html">zlonamjernu stranicu</a> dok si ovdje "prijavljen" - ona će te automatski vratiti ovamo nakon 2 sekunde, pa ćeš odmah vidjeti je li se email promijenio.</p>
+
+<form method="post" action="/csrf-toggle">
+<input type="checkbox" name="vulnerable" value="on" %%CSRF_CHECKED%%>
+Ranjivost uključena
+<input type="submit" value="Primijeni">
+</form>
+
+<p>Trenutni email: %%EMAIL%%</p>
+
+<form method="get" action="/set-email">
+Novi email: <input type="text" name="email">
+<input type="hidden" name="token" value="%%TOKEN%%">
+<input type="submit" value="Spremi email">
+</form>
+
+</body>
+</html>
