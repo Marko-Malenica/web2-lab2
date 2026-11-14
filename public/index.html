@@ -25,7 +25,7 @@ PIN: <input type="password" name="pin">
 
 <hr>
 <h2>CSRF (Cross Site Request Forgery)</h2>
-<p>Upute: Promijeni email obrascem ispod (šalje ispravan token). Zatim klikni na <a href="https://marko-malenica.github.io/web2-lab2/">zlonamjernu stranicu</a> dok si ovdje "prijavljen" - ona će te automatski vratiti ovamo nakon 2 sekunde, pa ćeš odmah vidjeti je li se email promijenio.</p>
+<p>Upute: Promijeni email obrascem ispod (šalje ispravan token). Zatim klikni na <a href="https://marko-malenica.github.io/web2-lab2/evil_page.html">zlonamjernu stranicu</a> dok si ovdje "prijavljen" - ona će te automatski vratiti ovamo nakon 2 sekunde, pa ćeš odmah vidjeti je li se email promijenio.</p>
 
 <form method="post" action="/csrf-toggle">
 <input type="checkbox" name="vulnerable" value="on" %%CSRF_CHECKED%%>
